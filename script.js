@@ -1,5 +1,16 @@
 // script.js
 
+// Function to detect touch devices
+function isTouchDevice() {
+    return ('ontouchstart' in window) || navigator.maxTouchPoints > 0 || navigator.msMaxTouchPoints > 0;
+}
+
+// If it's a touch device, add 'no-hover' class to the body
+if (isTouchDevice()) {
+    document.documentElement.classList.add('no-hover');
+}
+
+// Existing script.js content follows...
 import { vocabulary } from './words.js';
 
 // Function to shuffle an array using Fisher-Yates Shuffle
@@ -76,18 +87,51 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // Event listener for emoji click/tap
     const emojiContainer = document.getElementById("emojiContainer");
-    emojiContainer.addEventListener("click", debouncedSpeakWord);
-    emojiContainer.addEventListener("touchend", debouncedSpeakWord);
+    
+    // To prevent double activation on touch devices
+    let touchHandled = false;
+    
+    emojiContainer.addEventListener("touchstart", (e) => {
+        touchHandled = true;
+        debouncedSpeakWord();
+    }, { passive: true });
+
+    emojiContainer.addEventListener("click", (e) => {
+        if (!touchHandled) {
+            debouncedSpeakWord();
+        }
+        touchHandled = false;
+    });
 
     // Event listeners for navigation buttons
     const nextBtn = document.getElementById("nextBtn");
     const prevBtn = document.getElementById("prevBtn");
+    
+    // Next Button
+    nextBtn.addEventListener("touchstart", (e) => {
+        touchHandled = true;
+        debouncedNextWord();
+    }, { passive: true });
 
-    nextBtn.addEventListener("click", debouncedNextWord);
-    nextBtn.addEventListener("touchend", debouncedNextWord);
+    nextBtn.addEventListener("click", (e) => {
+        if (!touchHandled) {
+            debouncedNextWord();
+        }
+        touchHandled = false;
+    });
 
-    prevBtn.addEventListener("click", debouncedPrevWord);
-    prevBtn.addEventListener("touchend", debouncedPrevWord);
+    // Previous Button
+    prevBtn.addEventListener("touchstart", (e) => {
+        touchHandled = true;
+        debouncedPrevWord();
+    }, { passive: true });
+
+    prevBtn.addEventListener("click", (e) => {
+        if (!touchHandled) {
+            debouncedPrevWord();
+        }
+        touchHandled = false;
+    });
 
     // Optional: Keyboard navigation for desktop
     document.addEventListener('keydown', (event) => {

@@ -72,5 +72,6 @@ h1 {
 
 /* Active state remains the same for both touch and hover devices */
 .nav-button:active {
-    transform: scale(0.95);
+    transform: scale(0.90);
+    background-color: hsl(208, 100%, 84%);
 }
