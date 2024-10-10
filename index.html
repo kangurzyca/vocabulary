@@ -4,33 +4,33 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Vocabulary Trainer</title>
+    <!-- Link to the CSS file -->
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <h1>Vocabulary Trainer</h1>
     
     <!-- Emoji placeholder for the word -->
-    <div id="emojiContainer" style="font-size:100px; cursor:pointer;">🍎</div>
+    <div id="emojiContainer" class="emoji">🍎</div>
 
     <!-- Word displayed here -->
     <span id="wordText">apple</span>
 
-    <!-- ResponsiveVoice.js script -->
-    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
+    <!-- Navigation Arrows -->
+    <div class="navigation">
+        <button id="prevBtn" class="nav-button">&lt;</button> <!-- Left arrow -->
+        <button id="nextBtn" class="nav-button">&gt;</button> <!-- Right arrow -->
+    </div>
 
-    <script>
-        const word = "apple";  // Change this dynamically as needed
-        document.getElementById("wordText").textContent = word;
-        document.getElementById("emojiContainer").textContent = "🍎";  // Set emoji based on the word
-
-        // Function to speak the word aloud using ResponsiveVoice.js
-        function speakWord(word) {
-            responsiveVoice.speak(word, "UK English Female");  // Specify voice as needed
-        }
-
-        // Event listener for clicking the emoji to speak the word
-        document.getElementById("emojiContainer").addEventListener("click", () => {
-            speakWord(word);
-        });
-    </script>
+    <!-- ResponsiveVoice.js script with your API key -->
+    <script src="https://code.responsivevoice.org/responsivevoice.js?key=ZjtVzUKC"></script>
+    <!-- Link to the main JavaScript file as a module -->
+    <script type="module" src="script.js"></script>
 </body>
 </html>
+
+
+
+
+<!-- <script src="https://code.responsivevoice.org/responsivevoice.js?key=ZjtVzUKC"></script> -->
+<!-- ZjtVzUKC -->
