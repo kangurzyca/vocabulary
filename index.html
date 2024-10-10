@@ -14,24 +14,17 @@
     <!-- Word displayed here -->
     <span id="wordText">apple</span>
 
-    <script>
-        const vocabulary = {
-            apple: "🍎",
-            banana: "🍌",
-            cat: "🐱",
-            dog: "🐶",
-            // Add more words and emojis here
-        };
+    <!-- ResponsiveVoice.js script -->
+    <script src="https://code.responsivevoice.org/responsivevoice.js"></script>
 
-        // Set the initial word and emoji
+    <script>
         const word = "apple";  // Change this dynamically as needed
         document.getElementById("wordText").textContent = word;
-        document.getElementById("emojiContainer").textContent = vocabulary[word];
+        document.getElementById("emojiContainer").textContent = "🍎";  // Set emoji based on the word
 
-        // Function to speak the word aloud
+        // Function to speak the word aloud using ResponsiveVoice.js
         function speakWord(word) {
-            const utterance = new SpeechSynthesisUtterance(word);
-            window.speechSynthesis.speak(utterance);
+            responsiveVoice.speak(word, "UK English Female");  // Specify voice as needed
         }
 
         // Event listener for clicking the emoji to speak the word
