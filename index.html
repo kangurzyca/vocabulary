@@ -1,1 +1,43 @@
-hello
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Vocabulary Trainer</title>
+</head>
+<body>
+    <h1>Vocabulary Trainer</h1>
+    
+    <!-- Emoji placeholder for the word -->
+    <div id="emojiContainer" style="font-size:100px; cursor:pointer;">🍎</div>
+
+    <!-- Word displayed here -->
+    <span id="wordText">apple</span>
+
+    <script>
+        const vocabulary = {
+            apple: "🍎",
+            banana: "🍌",
+            cat: "🐱",
+            dog: "🐶",
+            // Add more words and emojis here
+        };
+
+        // Set the initial word and emoji
+        const word = "apple";  // Change this dynamically as needed
+        document.getElementById("wordText").textContent = word;
+        document.getElementById("emojiContainer").textContent = vocabulary[word];
+
+        // Function to speak the word aloud
+        function speakWord(word) {
+            const utterance = new SpeechSynthesisUtterance(word);
+            window.speechSynthesis.speak(utterance);
+        }
+
+        // Event listener for clicking the emoji to speak the word
+        document.getElementById("emojiContainer").addEventListener("click", () => {
+            speakWord(word);
+        });
+    </script>
+</body>
+</html>
