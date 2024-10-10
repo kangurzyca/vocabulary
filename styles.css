@@ -38,7 +38,7 @@ h1 {
 .nav-button {
     box-sizing: border-box;
     background-color: hsl(208, 100%, 77%);
-        border: none;
+    border: solid black 1px;
     color: white;
     padding: 15px 25px;
     text-align: center;
@@ -46,7 +46,6 @@ h1 {
     display: inline-block;
     font-size: 24px;
     margin: 80px 30px;
-    border: solid black 1px;
     cursor: pointer;
     border-radius: 50%;
     transition: background-color 0.3s, transform 0.2s;
@@ -59,14 +58,19 @@ h1 {
     .nav-button {
         padding: 20px 30px;
         font-size: 28px;
+        margin: 80px 15px; /* Optional: Adjust margin for better spacing */
     }
 }
 
-.nav-button:hover {
-    background-color: hsl(208, 100%, 84%);
-    transform: scale(1.1);
+/* Apply hover styles only on devices that support hover */
+@media (hover: hover) and (pointer: fine) {
+    .nav-button:hover {
+        background-color: hsl(208, 100%, 84%);
+        transform: scale(1.1);
+    }
 }
 
+/* Active state remains the same for both touch and hover devices */
 .nav-button:active {
     transform: scale(0.95);
 }
