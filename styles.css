@@ -9,10 +9,11 @@ body {
 
 h1 {
     color: #333;
+    opacity: 0.1;
 }
 
 .emoji {
-    font-size: 100px;
+    font-size: 200px;
     cursor: pointer;
     margin: 20px 0;
     transition: transform 0.2s ease; /* Smooth transition */
@@ -35,19 +36,22 @@ h1 {
 
 /* Styles for navigation buttons */
 .nav-button {
-    background-color: #4CAF50; /* Green */
-    border: none;
+    box-sizing: border-box;
+    background-color: hsl(208, 100%, 77%);
+        border: none;
     color: white;
     padding: 15px 25px;
     text-align: center;
     text-decoration: none;
     display: inline-block;
     font-size: 24px;
-    margin: 0 10px;
+    margin: 80px 30px;
+    border: solid black 1px;
     cursor: pointer;
     border-radius: 50%;
     transition: background-color 0.3s, transform 0.2s;
     user-select: none; /* Prevent text selection on double tap */
+    -webkit-tap-highlight-color: transparent;
 }
 
 /* Adjust padding for better touch targets on mobile */
@@ -55,12 +59,11 @@ h1 {
     .nav-button {
         padding: 20px 30px;
         font-size: 28px;
-        margin: 0 15px;
     }
 }
 
 .nav-button:hover {
-    background-color: #45a049;
+    background-color: hsl(208, 100%, 84%);
     transform: scale(1.1);
 }
 
